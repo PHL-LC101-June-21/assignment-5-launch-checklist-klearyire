@@ -33,21 +33,6 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
    let cargoStatus = document.getElementById("cargoStatus");
    let h2 = document.getElementById("launchStatus");
 
-   if (validateInput(pilot.value) === 'Empty' || validateInput(copilot.value) === 'Empty' || validateInput(fuelLevel.value) === 'Empty' || validateInput(cargoLevel.value) === 'Empty') {
-        list.style.visibility = "hidden";
-        alert("All fields must be filled out.");
-   }
-
-   if (validateInput(pilot.value) == "Is a number" || validateInput(copilot.value) == "Is a number") {
-        list.style.visibility = "hidden";
-        alert("Pilot and Co-pilot names cannot contain numbers.")
-   }
-
-   if (validateInput(fuelLevel.value) == "Not a number" || validateInput(cargoLevel.value) == "Not a number") {
-       list.style.visibility = "hidden";
-       alert("Fuel and Cargo fields must be numbers.")
-   }
-
    //cargo and fuel not ready
    if (cargoLevel > 10000 && fuelLevel < 10000) {
        list.style.visibility = "visible";
@@ -90,14 +75,13 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
    }
 }
 
-async function myFetch() {
+function myFetch() {
     let planetsReturned;
-    planetsReturned = await fetch('https://handlers.education.launchcode.org/static/planets.json').then( function(response) {
-    const planetData = await planetsReturned.json();
-    console.log(planetData);
+    planetsReturned = fetch('https://handlers.education.launchcode.org/static/planets.json').then( function(response) {
+    const planetData = response.json();
     return planetData;
     });
-    // return planetsReturned;
+    //return planetsReturned;
 }
 
 function pickPlanet(planets) {
