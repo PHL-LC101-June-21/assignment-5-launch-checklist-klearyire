@@ -33,7 +33,47 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
    let cargoStatus = document.getElementById("cargoStatus");
    let h2 = document.getElementById("launchStatus");
 
-   
+
+   //cargo and fuel not ready
+   if (cargoLevel > 10000 && fuelLevel < 10000) {
+       list.style.visibility = "visible";
+       h2.style.color = "red";
+       h2.innerHTML = "Shuttle not ready for launch";
+       pilotStatus = `Pilot ${pilot} is ready for launch`;
+       copilotStatus = `CoPilot ${copilot} is ready for launch`;
+       cargoStatus.innerHTML = "Cargo level too high for launch";
+       fuelStatus.innerHTML = "Fuel level too low for launch";
+
+   //cargo ready, fuel not ready    
+   } else if (cargoLevel <= 10000 && fuelLevel < 10000) {
+    list.style.visibility = "visible";
+    h2.style.color = "red";
+    h2.innerHTML = "Shuttle not ready for launch";
+    pilotStatus = `Pilot ${pilot} is ready for launch`;
+    copilotStatus = `CoPilot ${copilot} is ready for launch`;
+    cargoStatus.innerHTML = "Cargo mass is good, green for launch";
+    fuelStatus.innerHTML = "Fuel level too low for launch";
+
+   //cargo not ready, fuel ready 
+   } else if (cargoLevel > 10000 && fuelLevel >= 10000) {
+    list.style.visibility = "visible";
+    h2.style.color = "red";
+    h2.innerHTML = "Shuttle not ready for launch";
+    pilotStatus = `Pilot ${pilot} is ready for launch`;
+    copilotStatus = `CoPilot ${copilot} is ready for launch`;
+    cargoStatus.innerHTML = "Cargo level too high for launch";
+    fuelStatus.innerHTML = "Fuel is good, green for launch";
+
+   //cargo and fuel both ready, good for launch 
+   } else if (cargoLevel <= 10000 && fuelLevel >= 10000) {
+    list.style.visibility = "visible";
+    h2.style.color = "green";
+    h2.innerHTML = "Shuttle is Ready for launch";
+    pilotStatus = `Pilot ${pilot} is ready for launch`;
+    copilotStatus = `CoPilot ${copilot} is ready for launch`;
+    cargoStatus.innerHTML = "Cargo mass is good, green for launch";
+    fuelStatus.innerHTML = "Fuel is good, green for launch";
+   }
 
     // check if any of the values are empty
     // if (validateInput(pilotValue) === 'Empty' || validateInput(copilotValue) === 'Empty')
