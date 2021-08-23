@@ -33,6 +33,20 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
    let cargoStatus = document.getElementById("cargoStatus");
    let h2 = document.getElementById("launchStatus");
 
+   if (validateInput(pilot.value) === 'Empty' || validateInput(copilot.value) === 'Empty' || validateInput(fuelLevel.value) === 'Empty' || validateInput(cargoLevel.value) === 'Empty') {
+        list.style.visibility = "hidden";
+        alert("All fields must be filled out.");
+   }
+
+   if (validateInput(pilot.value) == "Is a number" || validateInput(copilot.value) == "Is a number") {
+        list.style.visibility = "hidden";
+        alert("Pilot and Co-pilot names cannot contain numbers.")
+   }
+
+   if (validateInput(fuelLevel.value) == "Not a number" || validateInput(cargoLevel.value) == "Not a number") {
+       list.style.visibility = "hidden";
+       alert("Fuel and Cargo fields must be numbers.")
+   }
 
    //cargo and fuel not ready
    if (cargoLevel > 10000 && fuelLevel < 10000) {
@@ -51,7 +65,7 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
     h2.innerHTML = "Shuttle not ready for launch";
     pilotStatus = `Pilot ${pilot} is ready for launch`;
     copilotStatus = `CoPilot ${copilot} is ready for launch`;
-    cargoStatus.innerHTML = "Cargo mass is good, green for launch";
+    cargoStatus.innerHTML = "Cargo mass low enough for launch";
     fuelStatus.innerHTML = "Fuel level too low for launch";
 
    //cargo not ready, fuel ready 
@@ -62,7 +76,7 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
     pilotStatus = `Pilot ${pilot} is ready for launch`;
     copilotStatus = `CoPilot ${copilot} is ready for launch`;
     cargoStatus.innerHTML = "Cargo level too high for launch";
-    fuelStatus.innerHTML = "Fuel is good, green for launch";
+    fuelStatus.innerHTML = "Fuel level high enough for launch";
 
    //cargo and fuel both ready, good for launch 
    } else if (cargoLevel <= 10000 && fuelLevel >= 10000) {
@@ -71,8 +85,8 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
     h2.innerHTML = "Shuttle is Ready for launch";
     pilotStatus = `Pilot ${pilot} is ready for launch`;
     copilotStatus = `CoPilot ${copilot} is ready for launch`;
-    cargoStatus.innerHTML = "Cargo mass is good, green for launch";
-    fuelStatus.innerHTML = "Fuel is good, green for launch";
+    cargoStatus.innerHTML = "Cargo mass low enough for launch";
+    fuelStatus.innerHTML = "Fuel level high enough for launch";
    }
 
     // check if any of the values are empty
