@@ -74,7 +74,7 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
         fuelStatus.innerHTML = "Fuel level high enough for launch";
    }
 }
-
+// First attempt at myFetch, didn't work
 // async function myFetch() {
 //     let planetsReturned;
 //     planetsReturned = await fetch('https://handlers.education.launchcode.org/static/planets.json').then(function (response) {
@@ -84,12 +84,13 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
 //}
 
 
+//.then( function(response) {});
+// taking the above code out made myFetch() work, but I'm so confused about it all...
 async function myFetch() {
-    let planetsReturned;
-    planetsReturned = await fetch('https://handlers.education.launchcode.org/static/planets.json').then( function(response) {
-    let planetsList = response.json();
-    });
-    return planetsList;
+    let planetsReturned = await fetch('https://handlers.education.launchcode.org/static/planets.json');
+    const data = await planetsReturned.json();
+    console.log(data);
+    return data;
 }
 
 function pickPlanet(planets) {
