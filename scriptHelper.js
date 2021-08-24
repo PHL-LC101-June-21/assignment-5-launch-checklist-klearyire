@@ -76,11 +76,12 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
 }
 
 function myFetch() {
-    fetch('https://handlers.education.launchcode.org/static/planets.json').then( function(response) {
+    let planetsReturned;
+    planetsReturned = await fetch('https://handlers.education.launchcode.org/static/planets.json').then( function(response) {
     let listedPlanets = response.json();
     return listedPlanets;
     });
-    //return planetsReturned;
+    return planetsReturned;
 }
 
 function pickPlanet(planets) {
