@@ -35,51 +35,50 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
 
    //cargo and fuel not ready
    if (cargoLevel > 10000 && fuelLevel < 10000) {
-       list.style.visibility = "visible";
-       h2.style.color = "red";
-       h2.innerHTML = "Shuttle not ready for launch";
-       pilotStatus = `Pilot ${pilot} is ready for launch`;
-       copilotStatus = `CoPilot ${copilot} is ready for launch`;
-       cargoStatus.innerHTML = "Cargo level too high for launch";
-       fuelStatus.innerHTML = "Fuel level too low for launch";
+        list.style.visibility = "visible";
+        h2.style.color = "red";
+        h2.innerHTML = "Shuttle not ready for launch";
+        pilotStatus = `Pilot ${pilot} is ready for launch`;
+        copilotStatus = `CoPilot ${copilot} is ready for launch`;
+        cargoStatus.innerHTML = "Cargo level too high for launch";
+        fuelStatus.innerHTML = "Fuel level too low for launch";
 
    //cargo ready, fuel not ready    
    } else if (cargoLevel <= 10000 && fuelLevel < 10000) {
-    list.style.visibility = "visible";
-    h2.style.color = "red";
-    h2.innerHTML = "Shuttle not ready for launch";
-    pilotStatus = `Pilot ${pilot} is ready for launch`;
-    copilotStatus = `CoPilot ${copilot} is ready for launch`;
-    cargoStatus.innerHTML = "Cargo mass low enough for launch";
-    fuelStatus.innerHTML = "Fuel level too low for launch";
+        list.style.visibility = "visible";
+        h2.style.color = "red";
+        h2.innerHTML = "Shuttle not ready for launch";
+        pilotStatus = `Pilot ${pilot} is ready for launch`;
+        copilotStatus = `CoPilot ${copilot} is ready for launch`;
+        cargoStatus.innerHTML = "Cargo mass low enough for launch";
+        fuelStatus.innerHTML = "Fuel level too low for launch";
 
    //cargo not ready, fuel ready 
    } else if (cargoLevel > 10000 && fuelLevel >= 10000) {
-    list.style.visibility = "visible";
-    h2.style.color = "red";
-    h2.innerHTML = "Shuttle not ready for launch";
-    pilotStatus = `Pilot ${pilot} is ready for launch`;
-    copilotStatus = `CoPilot ${copilot} is ready for launch`;
-    cargoStatus.innerHTML = "Cargo level too high for launch";
-    fuelStatus.innerHTML = "Fuel level high enough for launch";
+        list.style.visibility = "visible";
+        h2.style.color = "red";
+        h2.innerHTML = "Shuttle not ready for launch";
+        pilotStatus = `Pilot ${pilot} is ready for launch`;
+        copilotStatus = `CoPilot ${copilot} is ready for launch`;
+        cargoStatus.innerHTML = "Cargo level too high for launch";
+        fuelStatus.innerHTML = "Fuel level high enough for launch";
 
    //cargo and fuel both ready, good for launch 
    } else if (cargoLevel <= 10000 && fuelLevel >= 10000) {
-    list.style.visibility = "visible";
-    h2.style.color = "green";
-    h2.innerHTML = "Shuttle is Ready for launch";
-    pilotStatus = `Pilot ${pilot} is ready for launch`;
-    copilotStatus = `CoPilot ${copilot} is ready for launch`;
-    cargoStatus.innerHTML = "Cargo mass low enough for launch";
-    fuelStatus.innerHTML = "Fuel level high enough for launch";
+        list.style.visibility = "visible";
+        h2.style.color = "green";
+        h2.innerHTML = "Shuttle is Ready for launch";
+        pilotStatus = `Pilot ${pilot} is ready for launch`;
+        copilotStatus = `CoPilot ${copilot} is ready for launch`;
+        cargoStatus.innerHTML = "Cargo mass low enough for launch";
+        fuelStatus.innerHTML = "Fuel level high enough for launch";
    }
 }
 
 function myFetch() {
-    let planetsReturned;
-    planetsReturned = fetch('https://handlers.education.launchcode.org/static/planets.json').then( function(response) {
-    const planetData = response.json();
-    return planetData;
+    fetch('https://handlers.education.launchcode.org/static/planets.json').then( function(response) {
+    let listedPlanets = response.json();
+    return listedPlanets;
     });
     //return planetsReturned;
 }

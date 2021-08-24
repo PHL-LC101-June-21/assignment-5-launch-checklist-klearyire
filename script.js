@@ -35,6 +35,7 @@ window.addEventListener("load", function() {
             alert("Fuel and Cargo fields must be numbers.");
             event.preventDefault();
         }
+        event.preventDefault();
    })
 
    let listedPlanets;
@@ -45,7 +46,7 @@ window.addEventListener("load", function() {
        console.log(listedPlanets);
    }).then(function() {
        console.log(listedPlanets);
-       const pickedPlanet = pickPlanet(listedPlanets);
+       let pickedPlanet = pickPlanet(listedPlanets);
         //  Below this comment call the appropriate helper functions to pick a planet fom the list of planets and add that information to your destination.
         // const planet = pickPlanet(listedPlanets)
       addDestinationInfo(window.document, pickedPlanet.name, pickedPlanet.diameter, pickedPlanet.star, pickedPlanet.distance, pickedPlanet.moons, pickedPlanet.image);
