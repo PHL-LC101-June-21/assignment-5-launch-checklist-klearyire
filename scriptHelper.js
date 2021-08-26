@@ -83,15 +83,22 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
 //     return planetsReturned;
 //}
 
-
-//.then( function(response) {});
-// taking the above code out made myFetch() work, but I'm so confused about it all...
 async function myFetch() {
-    let planetsReturned = await fetch('https://handlers.education.launchcode.org/static/planets.json');
-    const data = await planetsReturned.json();
+    let planetsReturned = await fetch('https://handlers.education.launchcode.org/static/planets.json').then( function(response) {
+    const data = planetsReturned.json();
     console.log(data);
     return data;
+    });
 }
+
+
+// async function myFetch() {
+//     let planetsReturned = await fetch('https://handlers.education.launchcode.org/static/planets.json');
+//     const data = await planetsReturned.json();
+//     console.log(data);
+//     return data;
+// }
+
 
 function pickPlanet(planets) {
     let index = Math.floor(Math.random() * planets.length);
