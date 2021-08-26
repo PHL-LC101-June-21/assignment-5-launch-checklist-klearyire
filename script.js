@@ -51,14 +51,16 @@ window.addEventListener("load", function() {
         const planet = pickPlanet(listedPlanets);
       addDestinationInfo(window.document, pickedPlanet.name, pickedPlanet.diameter, pickedPlanet.star, pickedPlanet.distance, pickedPlanet.moons, pickedPlanet.image);
     })
-    
+
+
+
+        // Nhu's suggestions:
         // get the form
         // add a listener to when the form submit
         // if it's not, preventDefault
         // get the value for each of the input field
         // let pilotInput = this.document.querySelector("input[name=pilotName]");
         // const pilotValue = pilotInput.value
-
         // let list = document.getElementById('faultyItems');
         // formSubmission(document, list, pilotValue, copilotValue, fuelLevelValue, cargoLevelValue)
 
