@@ -74,19 +74,10 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
         fuelStatus.innerHTML = "Fuel level high enough for launch";
    }
 }
-// async function myFetch() {
-//     let planetsReturned;
-//     planetsReturned = await fetch('https://handlers.education.launchcode.org/static/planets.json').then(function (response) {
-//     // get the json from the response
-//         });
-//     return planetsReturned;
-//}
 
 async function myFetch() {
     let planetsReturned = await fetch('https://handlers.education.launchcode.org/static/planets.json').then( function(response) {
     return response.json();
-    //console.log(data);
-    //return data;
     });
     return planetsReturned;
 }
