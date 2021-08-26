@@ -74,7 +74,6 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
         fuelStatus.innerHTML = "Fuel level high enough for launch";
    }
 }
-// First attempt at myFetch, didn't work
 // async function myFetch() {
 //     let planetsReturned;
 //     planetsReturned = await fetch('https://handlers.education.launchcode.org/static/planets.json').then(function (response) {
@@ -85,20 +84,12 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
 
 async function myFetch() {
     let planetsReturned = await fetch('https://handlers.education.launchcode.org/static/planets.json').then( function(response) {
-    const data = planetsReturned.json();
-    console.log(data);
-    return data;
+    return response.json();
+    //console.log(data);
+    //return data;
     });
+    return planetsReturned;
 }
-
-
-// async function myFetch() {
-//     let planetsReturned = await fetch('https://handlers.education.launchcode.org/static/planets.json');
-//     const data = await planetsReturned.json();
-//     console.log(data);
-//     return data;
-// }
-
 
 function pickPlanet(planets) {
     let index = Math.floor(Math.random() * planets.length);
