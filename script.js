@@ -38,7 +38,7 @@ window.addEventListener("load", function() {
         event.preventDefault();
    })
 
-    listedPlanets;
+    let listedPlanets;
     let listedPlanetsResponse = myFetch();
     listedPlanetsResponse.then(function (result) {
         listedPlanets = result;
