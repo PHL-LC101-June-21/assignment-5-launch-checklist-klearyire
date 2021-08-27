@@ -1,6 +1,6 @@
 // Write your JavaScript code here!
 //{ myFetch, pickPlanet, addDestinationInfo, formSubmission }
- // const = require("./scriptHelper");
+// const = require("./scriptHelper");
 
 window.addEventListener("load", function() {
     const document = window.document;
@@ -10,7 +10,7 @@ window.addEventListener("load", function() {
     const cargoLevel = document.querySelector("input[name=cargoMass]");
     const list = document.getElementById("faultyItems");
 
-    list.style.visibility = "hidden";
+    list.style.visibility = "visible";
 
     let form = document.querySelector("form");
     form.addEventListener("submit", function(event) {
