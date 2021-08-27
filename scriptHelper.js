@@ -38,9 +38,9 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
         list.style.visibility = "visible";
         h2.style.color = "rgb(199, 37, 78)";
         h2.innerHTML = "Shuttle Not Ready for Launch";
-        pilotStatus = `Pilot ${pilot.name} is ready for launch`;
-        copilotStatus = `CoPilot ${copilot.name} is ready for launch`;
-        cargoStatus.innerHTML = "Cargo level too high for launch";
+        pilotStatus = `Pilot ${pilotStatus.name} is ready for launch`;
+        copilotStatus = `CoPilot ${copilotStatus.name} is ready for launch`;
+        cargoStatus.innerHTML = "Cargo mass too heavy for launch";
         fuelStatus.innerHTML = "Fuel level too low for launch";
 
    //cargo ready, fuel not ready    
@@ -48,8 +48,8 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
         list.style.visibility = "visible";
         h2.style.color = "rgb(199, 37, 78)";
         h2.innerHTML = "Shuttle Not Ready for Launch";
-        pilotStatus = `Pilot ${pilot.name} is ready for launch`;
-        copilotStatus = `CoPilot ${copilot.name} is ready for launch`;
+        pilotStatus = `Pilot ${pilotStatus.name} is ready for launch`;
+        copilotStatus = `CoPilot ${copilotStatus.name} is ready for launch`;
         cargoStatus.innerHTML = "Cargo mass low enough for launch";
         fuelStatus.innerHTML = "Fuel level too low for launch";
 
@@ -58,18 +58,18 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
         list.style.visibility = "visible";
         h2.style.color = "rgb(199, 37, 78)";
         h2.innerHTML = "Shuttle Not Ready for Launch";
-        pilotStatus = `Pilot ${pilot.name} is ready for launch`;
-        copilotStatus = `CoPilot ${copilot.name} is ready for launch`;
-        cargoStatus.innerHTML = "Cargo level too high for launch";
+        pilotStatus = `Pilot ${pilotStatus.name} is ready for launch`;
+        copilotStatus = `CoPilot ${copilotStatus.name} is ready for launch`;
+        cargoStatus.innerHTML = "Cargo mass too heavy for launch";
         fuelStatus.innerHTML = "Fuel level high enough for launch";
 
    //cargo and fuel both ready, good for launch 
    } else if (cargoLevel <= 10000 && fuelLevel >= 10000) {
         list.style.visibility = "visible";
-        h2.style.color = "green";
+        h2.style.color = "rgb(65, 159, 106)";
         h2.innerHTML = "Shuttle is Ready for Launch";
-        pilotStatus = `Pilot ${pilot.name} is ready for launch`;
-        copilotStatus = `CoPilot ${copilot.name} is ready for launch`;
+        pilotStatus = `Pilot ${pilotStatus.name} is ready for launch`;
+        copilotStatus = `CoPilot ${copilotStatus.name} is ready for launch`;
         cargoStatus.innerHTML = "Cargo mass low enough for launch";
         fuelStatus.innerHTML = "Fuel level high enough for launch";
    }
